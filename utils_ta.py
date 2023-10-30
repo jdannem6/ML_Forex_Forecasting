@@ -14,7 +14,7 @@ def ROC20(df):
 
 def WILLIAMS14(df):
     period = 14 # default
-    TA.WILLIAMS(df, period)
+    return TA.WILLIAMS(df, period)
 
 def RSI14(df):
     period = 14 # default
@@ -22,7 +22,7 @@ def RSI14(df):
 
 def CMO9(df):
     period = 9 # default
-    TA.CMO(df, period)
+    return TA.CMO(df, period)
 
 def DEMA9(df):
     period = 9 # default
