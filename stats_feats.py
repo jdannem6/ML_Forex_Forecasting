@@ -35,7 +35,7 @@ def extract_ica(df):
     column = df['Close'].values.reshape(1, -1)
 
     ica = pd.DataFrame(df['Date'])
-    ica['ica'] = ICA(column)
+    ica['ica'] = ICA(column).T
 
     return ica
 
@@ -46,10 +46,13 @@ def extract_mean_abs_change(df, win_size = 30):
 
     column = df['Close'].values
     feats = []
-    for t in range(win_size, len(column)):
-        feats.append(mean_abs_change(column[t - win_size: t]))
+    for t in range(len(column)):
+        if t - win_size < 0:
+            feats.append(0)
+        else:
+            feats.append(mean_abs_change(column[t - win_size: t]))
 
-    mean_abs = pd.DataFrame(df['Date'][win_size:])
+    mean_abs = pd.DataFrame(df['Date'])
     mean_abs['mean_abs'] = feats
 
     return mean_abs
