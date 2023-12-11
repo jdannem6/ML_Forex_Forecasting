@@ -12,7 +12,12 @@ https://finance.yahoo.com/quote/GBPCHF%3DX/history?p=GBPCHF%253DX
 6. EUR/CHF:
 https://finance.yahoo.com/quote/EURCHF%3DX/history?p=EURCHF%3DX
 
-# How to run svr.ipynb
-- Set feat_dir as the path to which csv files and generate_features.py is stored
-- 'Run all' for each notebook. Latest 5d predictions are stored in predictions_T_svr.csv, with each row as a 5-day prediction and rows generated in the order of notebooks run
-- Run 'predictions_T.ipynb' to transpose the matrix in 'predictions_T_svr.csv' (from 6*5 to 5*6)
+## How to run VARIMA models
+- All of the VARIMA models are Jupyter notebooks named "VARIMA_[currency_rate].ipynb. For example, the VARIMA model for predicting the USD/EUR rate is VARIMA_usd_eur.ipynb. Run any of these notebooks to test the models
+
+## How to test older models
+- The older models, such as the support vector regression, ridge regression, ARIMA models, etc. are all stored in the old folder.
+
+### Acknowledgements
+The VARIMA scripts make use of code from [1] for implementing the Augmented Dickey Fuller (ADF) and the Grangers Causality Test. These code snippets were solely used to determine necessary attributes of underlying data before training the models
+[1] Prabhakaran, S. (2022, August 30). Vector autoregression (VAR) - comprehensive guide with examples in Python. Machine Learning Plus. https://www.machinelearningplus.com/time-series/vector-autoregression-examples-python/ 
